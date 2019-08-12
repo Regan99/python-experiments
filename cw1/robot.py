@@ -15,21 +15,27 @@
 
 a=0
 b=0
+dire=''
+steps=0
 while True:
     r = input("enter the direction step: ")
     if not r:
       break
-    dire, steps = r.split(' ')
-
+    
+    try:
+        dire, steps = r.split(' ')
+        steps = int(steps)
+    except:
+        print("error")
 
     if dire == "left":
-        a = a - int(steps)
+        a = a - steps
     elif dire == "right":
-        a = a + int(steps)
+        a = a + steps
     elif dire == "up":
-        b = b + int(steps)
+        b = b + steps
     elif dire == "down":
-        b = b - int(steps)
+        b = b - steps
     else:
       pass
 distance = (a**2 + b**2)**(1/2)
